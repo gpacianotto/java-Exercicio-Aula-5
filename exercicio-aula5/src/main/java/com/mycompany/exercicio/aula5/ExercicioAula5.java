@@ -6,10 +6,13 @@
 package com.mycompany.exercicio.aula5;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +22,6 @@ import javax.swing.JPanel;
 public class ExercicioAula5 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
         
         JFrame application = new JFrame("um programa paint simples");
         
@@ -29,9 +31,23 @@ public class ExercicioAula5 {
         
         application.setJMenuBar(menuBar);
         
-        JMenu menu = new JMenu("Arquivo");
+        JMenu arquivo = new JMenu("Arquivo");
+        JMenu pinceis = new JMenu("Pinceis");
+
+        JMenuItem lapis = new JMenuItem("Lápis");
         
-        menuBar.add(menu);
+        lapis.addActionListener(new ActionListener(){
+        
+        public void actionPerformed(ActionEvent e)
+        {
+            //código de lapis
+        }
+        });
+        
+        pinceis.add(lapis);
+        
+        menuBar.add(arquivo);
+        menuBar.add(pinceis);
         
         application.add(panel, BorderLayout.CENTER);
         
